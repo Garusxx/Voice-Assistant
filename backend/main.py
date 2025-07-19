@@ -7,7 +7,7 @@ from flask_cors import CORS
 load_dotenv()
 
 app = Flask(__name__)
-CORS(app, origins=["https://voice-assistant-frontend.onrender.com"])
+CORS(app, origins=["https://voice-assistant-aj4b.onrender.com"])
 
 
 def fetch_call_details(call_id):
