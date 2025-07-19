@@ -64,7 +64,7 @@ function Calendar({ days, setDays }) {
                   </div>
                   <div id="dayName">{day.day}</div>
                   <div id="dayNumber">{date}</div>
-                  {/* <div id="year">{year}</div> */}
+
                   <ul>
                     {day.sessions.map((session, idx) => (
                       <li
@@ -76,7 +76,6 @@ function Calendar({ days, setDays }) {
                         }`}
                       >
                         {session.time}{" "}
-                        {/* {session.available ? "Available" : "Unavailable"} */}
                       </li>
                     ))}
                   </ul>

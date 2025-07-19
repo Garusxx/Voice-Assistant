@@ -123,16 +123,30 @@ function App() {
   };
 
   const updateDays = (bookingDays) => {
+    if (!bookingDays || !bookingDays.date || !bookingDays.time) {
+      console.warn("Invalid bookingDays", bookingDays);
+      return;
+    }
+
+    const clean = (str) => str.replace(/\s+/g, "");
+
     setDays((prevDays) =>
       prevDays.map((day) => {
-        if (day.date === bookingDays.date) {
+        const dayDate = new Date(day.date).toISOString().split("T")[0];
+        const bookingDate = new Date(bookingDays.date)
+          .toISOString()
+          .split("T")[0];
+
+        if (dayDate === bookingDate) {
           return {
             ...day,
-            sessions: day.sessions.map((session) =>
-              session.time === bookingDays.time
-                ? { ...session, available: false }
-                : session
-            ),
+            sessions: day.sessions.map((session) => {
+              if (clean(session.time) === clean(bookingDays.time)) {
+                console.log(`Marking session unavailable: ${session.time}`);
+                return { ...session, available: false };
+              }
+              return session;
+            }),
           };
         }
         return day;
