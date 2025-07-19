@@ -1,0 +1,92 @@
+/* 
+
+  #Russet: #774320;
+  #Rust: #B44819;
+  #Lemon chiffo: #F5F3C7;
+  #Orange peel: #FD9A02;
+  #Dark cyan: #01928B;
+  #Fire brick: #B83729;
+ 
+
+
+  */
+
+.calendar-container {
+  text-align: center;
+  margin-bottom: 10rem;
+  margin-left: 2rem;
+  margin-right: 2rem;
+}
+
+.calendar-grid {
+  display: grid;
+  grid-template-columns: repeat(7, minmax(150px, 1fr));
+  gap: 0.5rem;
+  margin: auto;
+  color: #e16a54;
+}
+
+@media (max-width: 1050px) {
+  .calendar-grid {
+    grid-template-columns: repeat(7, minmax(100px, 1fr));
+    gap: 0.3rem;
+  }
+}
+@media (max-width: 768px) {
+  .calendar-grid {
+    grid-template-columns: repeat(7, minmax(75px, 1fr));
+    gap: 0;
+  }
+}
+@media (max-width: 425px) {
+  .calendar-grid {
+    grid-template-columns: repeat(7, minmax(55px, 1fr));
+    gap: 0;
+  }
+}
+@media (max-width: 375px) {
+  .calendar-grid {
+    grid-template-columns: repeat(7, minmax(45px, 1fr));
+    gap: 0;
+  }
+}
+
+.calendar-day-container {
+  background-color: #7c444f;
+  border: #f5f3c7 2px solid;
+  border-radius: 15px;
+}
+
+#monthName {
+  font-size: 1.5rem;
+}
+
+#dayName {
+  background-color: #9f5255;
+  color: #fd9a02;
+  font-size: 2rem;
+}
+
+#dayNumber {
+  font-size: 3rem;
+}
+
+.calendar-day ul {
+  list-style-type: none;
+}
+
+.calendar-day li {
+  color: #f5f3c7;
+}
+
+.calendar-day li.available {
+  background-color: #4c7c59;
+}
+
+.calendar-day li.unavailable {
+  background-color: #b03a2e;
+}
+.rounded-bottom {
+  border-bottom-left-radius: 15px;
+  border-bottom-right-radius: 15px;
+}
