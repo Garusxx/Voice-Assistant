@@ -104,7 +104,7 @@ function App() {
 
   const getCallDetails = (interval = 3000) => {
     setLoadingResult(true);
-    fetch("/call-details?call_id=" + callId)
+    fetch(`${process.env.VITE_APP_API_URL}/call-details?call_id=` + callId)
       .then((response) => response.json())
       .then((data) => {
         if (data.analysis && data.summary) {
